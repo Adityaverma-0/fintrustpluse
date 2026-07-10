@@ -1,0 +1,627 @@
+$ vite --config vite.config.ts --host 0.0.0.0
+
+  VITE v7.3.6  ready in 212 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.46.62.57:5173/
+10:42:03 PM [vite] (client) hmr update /src/index.css, /src/pages/freelancer-dashboard.tsx, /src/pages/client-dashboard.tsx, /src/pages/wallet.tsx
+10:42:20 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:42:30 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:42:39 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:42:46 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:42:57 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:43:49 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+10:43:55 PM [vite] (client) hmr update /src/pages/withdraw.tsx, /src/index.css
+11:11:16 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+11:11:25 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+11:11:25 PM [vite] Internal server error: Failed to resolve import "@/pages/profile" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/App.tsx:29:24
+  28 |  import ProjectDetail from "@/pages/project-detail";
+  29 |  import InvoiceCenter from "@/pages/invoice-center";
+  30 |  import ProfilePage from "@/pages/profile";
+     |                           ^
+  31 |  import NotFound from "@/pages/not-found";
+  32 |  import VerifyEmail from "@/pages/verify-email";
+      at TransformPluginContext._formatLog (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 28)
+      at async TransformPluginContext.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:24622:20)
+11:11:30 PM [vite] (client) hmr update /src/index.css, /src/components/layout/Navbar.tsx
+11:11:37 PM [vite] (client) hmr update /src/index.css, /src/components/layout/Navbar.tsx
+11:11:57 PM [vite] (client) hmr update /src/pages/freelancer-dashboard.tsx, /src/index.css
+11:12:05 PM [vite] (client) hmr update /src/pages/freelancer-dashboard.tsx, /src/index.css
+11:12:12 PM [vite] (client) hmr update /src/pages/freelancer-dashboard.tsx, /src/index.css
+11:12:12 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:12:16 PM [vite] Internal server error: Failed to resolve import "@/pages/profile" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/App.tsx:29:24
+  28 |  import ProjectDetail from "@/pages/project-detail";
+  29 |  import InvoiceCenter from "@/pages/invoice-center";
+  30 |  import ProfilePage from "@/pages/profile";
+     |                           ^
+  31 |  import NotFound from "@/pages/not-found";
+  32 |  import VerifyEmail from "@/pages/verify-email";
+      at TransformPluginContext._formatLog (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 28)
+      at async TransformPluginContext.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:24622:20)
+11:12:16 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:12:16 PM [vite] Internal server error: Failed to resolve import "@/pages/profile" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/App.tsx:29:24
+  28 |  import ProjectDetail from "@/pages/project-detail";
+  29 |  import InvoiceCenter from "@/pages/invoice-center";
+  30 |  import ProfilePage from "@/pages/profile";
+     |                           ^
+  31 |  import NotFound from "@/pages/not-found";
+  32 |  import VerifyEmail from "@/pages/verify-email";
+      at TransformPluginContext._formatLog (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 28)
+      at async TransformPluginContext.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:24622:20)
+11:12:16 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:12:16 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:12:16 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:12:16 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:12:19 PM [vite] (client) Pre-transform error: Failed to resolve import "@/pages/profile" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/App.tsx:29:24
+  28 |  import ProjectDetail from "@/pages/project-detail";
+  29 |  import InvoiceCenter from "@/pages/invoice-center";
+  30 |  import ProfilePage from "@/pages/profile";
+     |                           ^
+  31 |  import NotFound from "@/pages/not-found";
+  32 |  import VerifyEmail from "@/pages/verify-email";
+11:12:19 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:12:19 PM [vite] Internal server error: Failed to resolve import "@/pages/profile" from "src/App.tsx". Does the file exist?
+  Plugin: vite:import-analysis
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/App.tsx:29:24
+  28 |  import ProjectDetail from "@/pages/project-detail";
+  29 |  import InvoiceCenter from "@/pages/invoice-center";
+  30 |  import ProfilePage from "@/pages/profile";
+     |                           ^
+  31 |  import NotFound from "@/pages/not-found";
+  32 |  import VerifyEmail from "@/pages/verify-email";
+      at TransformPluginContext._formatLog (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29079:43)
+      at TransformPluginContext.error (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:29076:14)
+      at normalizeUrl (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27199:18)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27257:32
+      at async Promise.all (index 28)
+      at async TransformPluginContext.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:27225:4)
+      at async EnvironmentPluginContainer.transform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:28877:14)
+      at async loadAndTransform (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:22746:26)
+      at async viteTransformMiddleware (file:///Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/vite@7.3.6_@types+node@25.9.4_jiti@2.7.0_lightningcss@1.32.0_tsx@4.23.0/node_modules/vite/dist/node/chunks/config.js:24622:20)
+11:12:19 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:12:20 PM [vite] (client) hmr update /src/pages/client-dashboard.tsx, /src/index.css
+11:12:28 PM [vite] (client) hmr update /src/pages/client-dashboard.tsx, /src/index.css
+11:13:30 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:13:30 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:13:31 PM [vite] (client) ✨ new dependencies optimized: @radix-ui/react-switch
+11:13:31 PM [vite] (client) ✨ optimized dependencies changed. reloading
+11:13:31 PM [vite] (client) Pre-transform error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+11:13:31 PM [vite] Internal server error: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (150:12)
+
+  148 |                   </Card>
+  149 |                 </motion.div>
+> 150 |             </div>
+      |             ^
+  151 |
+  152 |             {/* Profile Completion Widget */}
+  153 |             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="mb-8">
+  Plugin: vite:react-babel
+  File: /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/freelancer-dashboard.tsx:150:12
+  148 |                    </Card>
+  149 |                  </motion.div>
+  150 |              </div>
+      |              ^
+  151 |  
+  152 |              {/* Profile Completion Widget */}
+      at constructor (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:365:19)
+      at TypeScriptParserMixin.raise (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:39
+      at TypeScriptParserMixin.tryParse (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9792:18)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at TypeScriptParserMixin.parseFunctionBody (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12110:24)
+      at TypeScriptParserMixin.parseArrowExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12092:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11704:12)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:9803:20)
+      at /Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/eatenapplestores/Desktop/Fintrust++/node_modules/.pnpm/@babel+parser@7.29.7/node_modules/@babel/parser/lib/index.js:12510:17)
+11:13:41 PM [vite] (client) hmr update /src/pages/freelancer-dashboard.tsx, /src/index.css
+11:14:06 PM [vite] (client) hmr update /src/index.css, /src/pages/job-detail.tsx, /src/pages/admin-dashboard.tsx, /src/pages/client-dashboard.tsx, /src/pages/wallet.tsx, /src/pages/withdraw.tsx, /src/pages/verify-email.tsx, /src/pages/forgot-password.tsx, /src/pages/verify-reset-otp.tsx, /src/pages/reset-password.tsx, /src/pages/invoice-center.tsx, /src/pages/project-detail.tsx, /src/pages/browse-jobs.tsx, /src/pages/freelancer-dashboard.tsx, /src/pages/messages.tsx, /src/pages/projects.tsx, /src/components/layout/NotificationBell.tsx, /src/pages/profile.tsx
+11:32:22 PM [vite] (client) hmr update /src/App.tsx, /src/index.css
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1783706653333,"name":"Error","message":"Input is not defined","stack":"    at AdminDashboard /Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/admin-dashboard.tsx:232:22\n\n\n\n\n\n\n\n\n","loc":{"line":232,"column":22,"file":"/Users/eatenapplestores/Desktop/Fintrust++/trustfirst/src/pages/admin-dashboard.tsx"},"frame":"230|                    <div className=\"relative w-full sm:flex-1\">\n231|                      <Search className=\"absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground\" />\n232|                      <Input \n   |                       ^\n233|                        placeholder=\"Search by name, email, or payout ID...\" \n234|                        value={searchQuery}"}
+11:34:52 PM [vite] (client) hmr update /src/pages/admin-dashboard.tsx, /src/index.css
+11:35:02 PM [vite] (client) hmr update /src/pages/admin-dashboard.tsx, /src/index.css
+11:35:11 PM [vite] (client) hmr update /src/pages/admin-dashboard.tsx, /src/index.css
+11:46:08 PM [vite] (client) hmr update /src/pages/admin-dashboard.tsx, /src/index.css
+11:46:09 PM [vite] (client) ✨ new dependencies optimized: recharts
+11:46:09 PM [vite] (client) ✨ optimized dependencies changed. reloading
+[RUNTIME_ERROR]{"type":"runtime-error","timestamp":1783707370303,"name":"Error","message":"Cannot read properties of null (reading 'useRef')","stack":"\n\n\n\n\n\n\n\n\n"}
+11:47:50 PM [vite] (client) hmr update /src/pages/admin-dashboard.tsx, /src/index.css
+12:16:22 AM [vite] (client) hmr update /src/pages/wallet.tsx, /src/index.css
