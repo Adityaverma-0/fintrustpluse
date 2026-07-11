@@ -1,6 +1,9 @@
 import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
+import dns from "dns";
+
+dns.setDefaultResultOrder("ipv4first");
 
 const smtpHost = process.env.SMTP_HOST;
 const smtpPort = process.env.SMTP_PORT;
