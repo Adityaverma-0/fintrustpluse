@@ -30,10 +30,10 @@ if (isSmtpConfigured) {
     port: Number(smtpPort || 587),
     secure: smtpPort === "465",
     auth: {
-      user: smtpUser,
-      pass: smtpPass,
+        user: smtpUser,
+        pass: smtpPass,
     },
-  });
+});
 }
 
 // Local simulation inbox log path
@@ -90,6 +90,35 @@ async function doSendEmail({
   otp?: string;
 }) {
   const resendApiKey = process.env.RESEND_API_KEY;
+  const googleScriptUrl = process.env.GOOGLE_SCRIPT_URL;
+
+  if (googleScriptUrl) {
+    try {
+      const startApi = Date.now();
+      console.log(`[GOOGLE SCRIPT] Connecting & Sending via Apps Script to ${to}...`);
+      const response = await fetch(googleScriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ to, subject, html }),
+      });
+      
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(`Google Script API HTTP ${response.status}: ${errorBody}`);
+      }
+      
+      const apiDuration = Date.now() - startApi;
+      console.log(`[GOOGLE SCRIPT] Sent successfully to ${to} (Time: ${apiDuration}ms)`);
+      logEmailLocally(to, subject, html, otp);
+      return;
+    } catch (err: any) {
+      console.error(`[GOOGLE SCRIPT Error] Failed to send to ${to}:`, err);
+      logEmailLocally(to, `${subject} (GOOGLE SCRIPT FAILED)`, html, otp);
+      throw err;
+    }
+  }
 
   if (resendApiKey) {
     try {
