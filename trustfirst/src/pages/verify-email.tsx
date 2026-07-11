@@ -72,7 +72,7 @@ export default function VerifyEmailPage() {
     setLoading(true);
     try {
       const res = await api.post<any>("/auth/verify-email", { email, otp: otp.trim() });
-      toast({ title: "Email Verified!", description: "Welcome to TrustFirst+! Your account is now active." });
+      toast({ title: "Email Verified!", description: "Welcome to FinTrust+! Your account is now active." });
       sessionStorage.removeItem("pending_verification_email");
       
       // Complete login session

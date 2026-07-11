@@ -1,4 +1,6 @@
 import "dotenv/config";
+import dns from "dns";
+dns.setDefaultResultOrder("ipv4first");
 
 import app from "./app";
 import { logger } from "./lib/logger";
