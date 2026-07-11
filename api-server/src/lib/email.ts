@@ -86,6 +86,40 @@ export async function sendEmail({
   html: string;
   otp?: string;
 }) {
+  const resendApiKey = process.env.RESEND_API_KEY;
+
+  if (resendApiKey) {
+    try {
+      console.log(`[Email] Sending via Resend HTTP API to ${to}...`);
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${resendApiKey}`,
+        },
+        body: JSON.stringify({
+          from: "FinTrust+ <onboarding@resend.dev>",
+          to: [to],
+          subject,
+          html,
+        }),
+      });
+      
+      if (!response.ok) {
+        const errorBody = await response.text();
+        throw new Error(`Resend API HTTP ${response.status}: ${errorBody}`);
+      }
+      
+      console.log(`[Email] Sent successfully via Resend HTTP API to ${to}`);
+      logEmailLocally(to, subject, html, otp);
+      return;
+    } catch (err: any) {
+      console.error(`[Email Error] Failed to send email via Resend API to ${to}:`, err);
+      logEmailLocally(to, `${subject} (RESEND API FAILED - FALLBACK LOG)`, html, otp);
+      throw err;
+    }
+  }
+
   if (isSmtpConfigured && transporter) {
     try {
       await transporter.sendMail({

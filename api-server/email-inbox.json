@@ -1,6 +1,33 @@
 [
   {
     "to": "av04042007@gmail.com",
+    "subject": "Reset Your FinTrust+ Password",
+    "otp": "458067",
+    "body": "\n    <div style=\"font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;\">\n      <h2 style=\"color: #2563eb; font-weight: bold; border-bottom: 2px solid #eff6ff; padding-bottom: 10px;\">Reset Your Password</h2>\n      <p style=\"color: #475569; font-size: 14px;\">Hi Adii,</p>\n      <p style=\"color: #475569; font-size: 14px; line-height: 1.6;\">We received a request to reset your password. Use the following 6-digit OTP code to authorize your password update:</p>\n      <div style=\"background-color: #f0f9ff; border: 1px solid #e0f2fe; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #0369a1; margin: 20px 0;\">\n        458067\n      </div>\n      <p style=\"color: #64748b; font-size: 12px; margin-top: 10px;\">This OTP is valid for 10 minutes. If you did not request this password reset, please change your password or contact support immediately.</p>\n    </div>\n  ",
+    "timestamp": "2026-07-11T17:00:35.651Z"
+  },
+  {
+    "to": "sanketpatantar1@gmail.com",
+    "subject": "Verify Your FinTrust+ Account",
+    "otp": "873200",
+    "body": "\n    <div style=\"font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;\">\n      <h2 style=\"color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;\">Verify Your FinTrust+ Email</h2>\n      <p style=\"color: #475569; font-size: 14px;\">Hi sanket,</p>\n      <p style=\"color: #475569; font-size: 14px; line-height: 1.6;\">Thank you for registering on FinTrust+. Please use the following 6-digit verification code to complete your registration:</p>\n      <div style=\"background-color: #f0fdf4; border: 1px solid #d1fae5; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #065f46; margin: 20px 0;\">\n        873200\n      </div>\n      <p style=\"color: #64748b; font-size: 12px; margin-top: 10px;\">This code is valid for 10 minutes. If you did not request this, you can ignore this email.</p>\n    </div>\n  ",
+    "timestamp": "2026-07-11T16:57:39.392Z"
+  },
+  {
+    "to": "lidabi8656@acoxs.com",
+    "subject": "Welcome to FinTrust+!",
+    "body": "\n    <div style=\"font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;\">\n      <h2 style=\"color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;\">Welcome to FinTrust+</h2>\n      <p style=\"color: #475569; font-size: 14px;\">Hi Aditya,</p>\n      <p style=\"color: #475569; font-size: 14px; line-height: 1.6;\">Welcome to the next generation of escrow-backed freelance contracting! Your email address has been successfully verified, and your account is now fully active.</p>\n      <p style=\"color: #475569; font-size: 14px;\">Get started today by updating your profile or exploring available milestone agreements!</p>\n    </div>\n  ",
+    "timestamp": "2026-07-11T15:47:56.583Z"
+  },
+  {
+    "to": "lidabi8656@acoxs.com",
+    "subject": "Verify Your FinTrust+ Account",
+    "otp": "257588",
+    "body": "\n    <div style=\"font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;\">\n      <h2 style=\"color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;\">Verify Your FinTrust+ Email</h2>\n      <p style=\"color: #475569; font-size: 14px;\">Hi Aditya,</p>\n      <p style=\"color: #475569; font-size: 14px; line-height: 1.6;\">Thank you for registering on FinTrust+. Please use the following 6-digit verification code to complete your registration:</p>\n      <div style=\"background-color: #f0fdf4; border: 1px solid #d1fae5; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #065f46; margin: 20px 0;\">\n        257588\n      </div>\n      <p style=\"color: #64748b; font-size: 12px; margin-top: 10px;\">This code is valid for 10 minutes. If you did not request this, you can ignore this email.</p>\n    </div>\n  ",
+    "timestamp": "2026-07-11T15:47:18.105Z"
+  },
+  {
+    "to": "av04042007@gmail.com",
     "subject": "Withdrawal Verification Code",
     "otp": "443280",
     "body": "\n    <div style=\"font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;\">\n      <h2 style=\"color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;\">Verify Your Withdrawal Request</h2>\n      <p style=\"color: #475569; font-size: 14px;\">Hi Adii,</p>\n      <p style=\"color: #475569; font-size: 14px; line-height: 1.6;\">We received a request to withdraw <strong>$23.00</strong> from your TrustFirst+ wallet. Please use the following 6-digit verification code to complete this transaction:</p>\n      <div style=\"background-color: #f0fdf4; border: 1px solid #d1fae5; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #065f46; margin: 20px 0;\">\n        443280\n      </div>\n      <p style=\"color: #64748b; font-size: 12px; margin-top: 10px;\">This code is valid for 10 minutes. If you did not request this withdrawal, please secure your account immediately.</p>\n    </div>\n  ",

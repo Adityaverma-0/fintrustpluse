@@ -21071,27 +21071,27 @@ var require_router = __commonJS({
     var slice = Array.prototype.slice;
     var flatten = Array.prototype.flat;
     var methods = METHODS.map((method) => method.toLowerCase());
-    module.exports = Router23;
+    module.exports = Router24;
     module.exports.Route = Route;
-    function Router23(options) {
-      if (!(this instanceof Router23)) {
-        return new Router23(options);
+    function Router24(options) {
+      if (!(this instanceof Router24)) {
+        return new Router24(options);
       }
       const opts = options || {};
-      function router23(req, res, next) {
-        router23.handle(req, res, next);
+      function router24(req, res, next) {
+        router24.handle(req, res, next);
       }
-      Object.setPrototypeOf(router23, this);
-      router23.caseSensitive = opts.caseSensitive;
-      router23.mergeParams = opts.mergeParams;
-      router23.params = {};
-      router23.strict = opts.strict;
-      router23.stack = [];
-      return router23;
+      Object.setPrototypeOf(router24, this);
+      router24.caseSensitive = opts.caseSensitive;
+      router24.mergeParams = opts.mergeParams;
+      router24.params = {};
+      router24.strict = opts.strict;
+      router24.stack = [];
+      return router24;
     }
-    Router23.prototype = function() {
+    Router24.prototype = function() {
     };
-    Router23.prototype.param = function param(name, fn) {
+    Router24.prototype.param = function param(name, fn) {
       if (!name) {
         throw new TypeError("argument name is required");
       }
@@ -21111,7 +21111,7 @@ var require_router = __commonJS({
       params.push(fn);
       return this;
     };
-    Router23.prototype.handle = function handle(req, res, callback) {
+    Router24.prototype.handle = function handle(req, res, callback) {
       if (!callback) {
         throw new TypeError("argument callback is required");
       }
@@ -21238,7 +21238,7 @@ var require_router = __commonJS({
         }
       }
     };
-    Router23.prototype.use = function use(handler) {
+    Router24.prototype.use = function use(handler) {
       let offset = 0;
       let path4 = "/";
       if (typeof handler !== "function") {
@@ -21271,7 +21271,7 @@ var require_router = __commonJS({
       }
       return this;
     };
-    Router23.prototype.route = function route(path4) {
+    Router24.prototype.route = function route(path4) {
       const route2 = new Route(path4);
       const layer = new Layer(path4, {
         sensitive: this.caseSensitive,
@@ -21286,7 +21286,7 @@ var require_router = __commonJS({
       return route2;
     };
     methods.concat("all").forEach(function(method) {
-      Router23.prototype[method] = function(path4) {
+      Router24.prototype[method] = function(path4) {
         const route = this.route(path4);
         route[method].apply(route, slice.call(arguments, 1));
         return this;
@@ -21469,13 +21469,13 @@ var require_application = __commonJS({
     var compileTrust = require_utils3().compileTrust;
     var resolve = __require("node:path").resolve;
     var once = require_once();
-    var Router23 = require_router();
+    var Router24 = require_router();
     var slice = Array.prototype.slice;
     var flatten = Array.prototype.flat;
     var app2 = exports = module.exports = {};
     var trustProxyDefaultSymbol = "@@symbol:trust_proxy_default";
     app2.init = function init() {
-      var router23 = null;
+      var router24 = null;
       this.cache = /* @__PURE__ */ Object.create(null);
       this.engines = /* @__PURE__ */ Object.create(null);
       this.settings = /* @__PURE__ */ Object.create(null);
@@ -21484,13 +21484,13 @@ var require_application = __commonJS({
         configurable: true,
         enumerable: true,
         get: function getrouter() {
-          if (router23 === null) {
-            router23 = new Router23({
+          if (router24 === null) {
+            router24 = new Router24({
               caseSensitive: this.enabled("case sensitive routing"),
               strict: this.enabled("strict routing")
             });
           }
-          return router23;
+          return router24;
         }
       });
     };
@@ -21561,15 +21561,15 @@ var require_application = __commonJS({
       if (fns.length === 0) {
         throw new TypeError("app.use() requires a middleware function");
       }
-      var router23 = this.router;
+      var router24 = this.router;
       fns.forEach(function(fn2) {
         if (!fn2 || !fn2.handle || !fn2.set) {
-          return router23.use(path4, fn2);
+          return router24.use(path4, fn2);
         }
         debug(".use app under %s", path4);
         fn2.mountpath = path4;
         fn2.parent = this;
-        router23.use(path4, function mounted_app(req, res, next) {
+        router24.use(path4, function mounted_app(req, res, next) {
           var orig = req.app;
           fn2.handle(req, res, function(err) {
             Object.setPrototypeOf(req, orig.request);
@@ -24154,7 +24154,7 @@ var require_express = __commonJS({
     var EventEmitter = __require("node:events").EventEmitter;
     var mixin = require_merge_descriptors();
     var proto = require_application();
-    var Router23 = require_router();
+    var Router24 = require_router();
     var req = require_request();
     var res = require_response();
     exports = module.exports = createApplication;
@@ -24176,8 +24176,8 @@ var require_express = __commonJS({
     exports.application = proto;
     exports.request = req;
     exports.response = res;
-    exports.Route = Router23.Route;
-    exports.Router = Router23;
+    exports.Route = Router24.Route;
+    exports.Router = Router24;
     exports.json = bodyParser.json;
     exports.raw = bodyParser.raw;
     exports.static = require_serve_static();
@@ -30760,7 +30760,7 @@ See https://www.postgresql.org/docs/current/libpq-ssl.html for libpq SSL mode de
 var require_connection_parameters = __commonJS({
   "../node_modules/.pnpm/pg@8.22.0/node_modules/pg/lib/connection-parameters.js"(exports, module) {
     "use strict";
-    var dns = __require("dns");
+    var dns2 = __require("dns");
     var defaults2 = require_defaults();
     var parse3 = require_pg_connection_string().parse;
     var val = function(key, config2, envVar) {
@@ -30896,7 +30896,7 @@ var require_connection_parameters = __commonJS({
         if (this.client_encoding) {
           params.push("client_encoding=" + quoteParamValue(this.client_encoding));
         }
-        dns.lookup(this.host, function(err, address) {
+        dns2.lookup(this.host, function(err, address) {
           if (err) return cb(err, null);
           params.push("hostaddr=" + quoteParamValue(address));
           return cb(null, params.join(" "));
@@ -55265,13 +55265,16 @@ var require_razorpay = __commonJS({
   );
 })();
 
+// src/index.ts
+import dns from "dns";
+
 // src/app.ts
-var import_express23 = __toESM(require_express2(), 1);
+var import_express24 = __toESM(require_express2(), 1);
 var import_cors = __toESM(require_lib3(), 1);
 var import_pino_http = __toESM(require_logger(), 1);
 
 // src/routes/index.ts
-var import_express22 = __toESM(require_express2(), 1);
+var import_express23 = __toESM(require_express2(), 1);
 
 // src/routes/health.ts
 var import_express = __toESM(require_express2(), 1);
@@ -78615,7 +78618,7 @@ async function sendEmail({
   if (isSmtpConfigured && transporter) {
     try {
       await transporter.sendMail({
-        from: `"TrustFirst+" <${smtpUser}>`,
+        from: `"FinTrust+" <${smtpUser}>`,
         to,
         subject,
         html
@@ -78624,6 +78627,7 @@ async function sendEmail({
     } catch (err) {
       console.error(`[Email Error] Failed to send email via SMTP to ${to}:`, err);
       logEmailLocally(to, `${subject} (SMTP FAILED - FALLBACK LOG)`, html, otp);
+      throw err;
     }
   } else {
     logEmailLocally(to, subject, html, otp);
@@ -78632,9 +78636,9 @@ async function sendEmail({
 function getVerificationEmailTemplate(name, otp) {
   return `
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
-      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Verify Your TrustFirst+ Email</h2>
+      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Verify Your FinTrust+ Email</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
-      <p style="color: #475569; font-size: 14px; line-height: 1.6;">Thank you for registering on TrustFirst+. Please use the following 6-digit verification code to complete your registration:</p>
+      <p style="color: #475569; font-size: 14px; line-height: 1.6;">Thank you for registering on FinTrust+. Please use the following 6-digit verification code to complete your registration:</p>
       <div style="background-color: #f0fdf4; border: 1px solid #d1fae5; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #065f46; margin: 20px 0;">
         ${otp}
       </div>
@@ -78658,7 +78662,7 @@ function getResetPasswordEmailTemplate(name, otp) {
 function getWelcomeEmailTemplate(name) {
   return `
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
-      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Welcome to TrustFirst+</h2>
+      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Welcome to FinTrust+</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
       <p style="color: #475569; font-size: 14px; line-height: 1.6;">Welcome to the next generation of escrow-backed freelance contracting! Your email address has been successfully verified, and your account is now fully active.</p>
       <p style="color: #475569; font-size: 14px;">Get started today by updating your profile or exploring available milestone agreements!</p>
@@ -78670,7 +78674,7 @@ function getPasswordChangedEmailTemplate(name) {
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
       <h2 style="color: #dc2626; font-weight: bold; border-bottom: 2px solid #fef2f2; padding-bottom: 10px;">Password Changed Successfully</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
-      <p style="color: #475569; font-size: 14px; line-height: 1.6;">This is a security alert to confirm that your TrustFirst+ account password was updated successfully.</p>
+      <p style="color: #475569; font-size: 14px; line-height: 1.6;">This is a security alert to confirm that your FinTrust+ account password was updated successfully.</p>
       <p style="color: #dc2626; font-weight: 500; font-size: 13px;">If you did not perform this change, please contact our support team immediately to lock your account.</p>
     </div>
   `;
@@ -78759,7 +78763,7 @@ router2.post("/auth/register", async (req, res) => {
   }
   sendEmail({
     to: email3,
-    subject: "Verify Your TrustFirst+ Account",
+    subject: "Verify Your FinTrust+ Account",
     html: getVerificationEmailTemplate(name, otp),
     otp
   }).catch((err) => console.error("Registration email delivery error:", err));
@@ -78869,7 +78873,7 @@ router2.post("/auth/send-verification", async (req, res) => {
     }).where(eq(usersTable.id, user.id));
     await sendEmail({
       to: email3,
-      subject: "Verify Your TrustFirst+ Account",
+      subject: "Verify Your FinTrust+ Account",
       html: getVerificationEmailTemplate(user.name, otp),
       otp
     });
@@ -78919,7 +78923,7 @@ router2.post("/auth/verify-email", async (req, res) => {
     }).where(eq(usersTable.id, user.id));
     sendEmail({
       to: email3,
-      subject: "Welcome to TrustFirst+!",
+      subject: "Welcome to FinTrust+!",
       html: getWelcomeEmailTemplate(user.name)
     }).catch((err) => console.error("Welcome email delivery error:", err));
     const token = signToken(user.id);
@@ -78962,7 +78966,7 @@ router2.post("/auth/resend-verification", async (req, res) => {
     }).where(eq(usersTable.id, user.id));
     await sendEmail({
       to: email3,
-      subject: "Verify Your TrustFirst+ Account",
+      subject: "Verify Your FinTrust+ Account",
       html: getVerificationEmailTemplate(user.name, otp),
       otp
     });
@@ -78993,7 +78997,7 @@ router2.post("/auth/forgot-password", async (req, res) => {
     }).where(eq(usersTable.id, user.id));
     await sendEmail({
       to: email3,
-      subject: "Reset Your TrustFirst+ Password",
+      subject: "Reset Your FinTrust+ Password",
       html: getResetPasswordEmailTemplate(user.name, otp),
       otp
     });
@@ -79097,10 +79101,6 @@ router2.get("/auth/check-email-status", async (req, res) => {
   }
 });
 router2.get("/auth/dev-otp", async (req, res) => {
-  if (process.env.NODE_ENV !== "development") {
-    res.status(403).json({ error: "Only available in development mode" });
-    return;
-  }
   const { email: email3 } = req.query;
   if (!email3 || typeof email3 !== "string") {
     res.status(400).json({ error: "Email parameter is required" });
@@ -79114,7 +79114,8 @@ router2.get("/auth/dev-otp", async (req, res) => {
     }
     res.json({
       emailVerificationOtp: user.emailVerificationOtp,
-      resetPasswordOtp: user.resetPasswordOtp
+      resetPasswordOtp: user.resetPasswordOtp,
+      withdrawalOtp: user.withdrawalOtp
     });
   } catch (error40) {
     res.status(500).json({ error: error40.message });
@@ -79163,13 +79164,13 @@ router2.post("/auth/send-test-email", async (req, res) => {
     console.log("[SMTP TEST] Verification successful!");
     console.log(`[SMTP TEST] Sending test email to ${to}...`);
     const info = await testTransporter.sendMail({
-      from: `"TrustFirst+ SMTP Test" <${process.env.SMTP_USER}>`,
+      from: `"FinTrust+ SMTP Test" <${process.env.SMTP_USER}>`,
       to,
-      subject: "TrustFirst+ SMTP Connection Test",
+      subject: "FinTrust+ SMTP Connection Test",
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
           <h2 style="color: #2563eb;">Connection Successful!</h2>
-          <p>This is a test email from the TrustFirst+ platform to verify SMTP configuration and Gmail integration.</p>
+          <p>This is a test email from the FinTrust+ platform to verify SMTP configuration and Gmail integration.</p>
           <p style="font-size: 12px; color: #64748b;">Timestamp: ${(/* @__PURE__ */ new Date()).toISOString()}</p>
         </div>
       `
@@ -80438,8 +80439,8 @@ async function generateInvoiceForEvent(type, amount, clientId, freelancerId, opt
     paymentMethod: options.paymentMethod || "Wallet",
     transactionId: options.transactionId ?? null,
     status: type === "escrow_deposit" || type === "withdrawal" || type === "refund" ? "paid" : "generated",
-    digitalSignature: "TrustFirst+ Secure Cryptographic Seal",
-    qrCode: `https://trustfirstplus.com/verify-invoice/${invoiceNumber}`,
+    digitalSignature: "FinTrust+ Secure Cryptographic Seal",
+    qrCode: `https://fintrustplus.com/verify-invoice/${invoiceNumber}`,
     dueDate
   }).returning();
   let itemDescription = `Payment for project "${projectTitle}"`;
@@ -85430,35 +85431,117 @@ router21.get("/profile/stats", requireAuth, async (req, res) => {
 });
 var profile_default = router21;
 
-// src/routes/index.ts
+// src/routes/debug.ts
+var import_express22 = __toESM(require_express2(), 1);
+import nodemailer3 from "nodemailer";
 var router22 = (0, import_express22.Router)();
-router22.use(health_default);
-router22.use(auth_default);
-router22.use(jobs_default);
-router22.use(proposals_default);
-router22.use(projects_default);
-router22.use(wallet_default);
-router22.use(notifications_default);
-router22.use(reviews_default);
-router22.use(messages_default);
-router22.use(freelancers_default);
-router22.use(contracts_default);
-router22.use(submissions_default);
-router22.use(activity_default);
-router22.use(admin_default);
-router22.use(admin_enterprise_default);
-router22.use(escrow_default);
-router22.use(invoices_default);
-router22.use(templates_default);
-router22.use(razorpay_default);
-router22.use(withdrawal_default);
-router22.use(profile_default);
-var routes_default = router22;
+router22.post("/debug/test-email", async (req, res) => {
+  const { to } = req.body;
+  if (!to || typeof to !== "string") {
+    res.status(400).json({ error: "recipient email 'to' is required in request body" });
+    return;
+  }
+  const logs = [];
+  const log = (msg, data) => {
+    const formatted = data ? `${msg} ${JSON.stringify(data)}` : msg;
+    logs.push(formatted);
+    console.log(`[SMTP DEBUG] ${formatted}`);
+  };
+  log("Checking environment variables...");
+  log(`SMTP_HOST: ${process.env.SMTP_HOST}`);
+  log(`SMTP_PORT: ${process.env.SMTP_PORT}`);
+  log(`SMTP_USER: ${process.env.SMTP_USER}`);
+  log(`SMTP_PASS Exists: ${process.env.SMTP_PASS ? "TRUE" : "FALSE"}`);
+  log(`SMTP_PASS Length: ${process.env.SMTP_PASS ? process.env.SMTP_PASS.length : 0}`);
+  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    res.status(400).json({
+      error: "SMTP environment variables are not fully configured",
+      logs
+    });
+    return;
+  }
+  try {
+    const rawPass = process.env.SMTP_PASS || "";
+    const cleanPass = rawPass.trim().replace(/\s+/g, "");
+    log("Creating transporter...");
+    const testTransporter = nodemailer3.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: process.env.SMTP_PORT === "465",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: cleanPass
+      },
+      connectionTimeout: 1e4,
+      greetingTimeout: 1e4,
+      socketTimeout: 1e4
+    });
+    log("Verifying connection to SMTP server...");
+    await testTransporter.verify();
+    log("Verification successful!");
+    log(`Sending test email to ${to}...`);
+    const info = await testTransporter.sendMail({
+      from: `"FinTrust+ SMTP Test" <${process.env.SMTP_USER}>`,
+      to,
+      subject: "FinTrust+ SMTP Connection Test",
+      html: `
+        <div style="font-family: sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
+          <h2 style="color: #2563eb;">Connection Successful!</h2>
+          <p>This is a test email from the FinTrust+ platform to verify SMTP configuration and Gmail integration.</p>
+          <p style="font-size: 12px; color: #64748b;">Timestamp: ${(/* @__PURE__ */ new Date()).toISOString()}</p>
+        </div>
+      `
+    });
+    log("Test email sent successfully!", { messageId: info.messageId, response: info.response });
+    res.json({
+      success: true,
+      message: "Test email sent successfully",
+      messageId: info.messageId,
+      response: info.response,
+      logs
+    });
+  } catch (error40) {
+    log("Error sending email", { message: error40.message, stack: error40.stack });
+    res.status(500).json({
+      success: false,
+      error: error40.message,
+      stack: error40.stack,
+      logs
+    });
+  }
+});
+var debug_default = router22;
+
+// src/routes/index.ts
+var router23 = (0, import_express23.Router)();
+router23.use(health_default);
+router23.use(auth_default);
+router23.use(jobs_default);
+router23.use(proposals_default);
+router23.use(projects_default);
+router23.use(wallet_default);
+router23.use(notifications_default);
+router23.use(reviews_default);
+router23.use(messages_default);
+router23.use(freelancers_default);
+router23.use(contracts_default);
+router23.use(submissions_default);
+router23.use(activity_default);
+router23.use(admin_default);
+router23.use(admin_enterprise_default);
+router23.use(escrow_default);
+router23.use(invoices_default);
+router23.use(templates_default);
+router23.use(razorpay_default);
+router23.use(withdrawal_default);
+router23.use(profile_default);
+router23.use(debug_default);
+var routes_default = router23;
 
 // src/app.ts
 import fs3 from "fs";
 import path3 from "path";
-var app = (0, import_express23.default)();
+var app = (0, import_express24.default)();
 app.use(
   (0, import_pino_http.default)({
     logger,
@@ -85479,13 +85562,13 @@ app.use(
   })
 );
 app.use((0, import_cors.default)());
-app.use(import_express23.default.json({ limit: "50mb" }));
-app.use(import_express23.default.urlencoded({ extended: true, limit: "50mb" }));
+app.use(import_express24.default.json({ limit: "50mb" }));
+app.use(import_express24.default.urlencoded({ extended: true, limit: "50mb" }));
 var uploadsDir = path3.join(process.cwd(), "uploads");
 if (!fs3.existsSync(uploadsDir)) {
   fs3.mkdirSync(uploadsDir, { recursive: true });
 }
-app.use("/uploads", import_express23.default.static(uploadsDir));
+app.use("/uploads", import_express24.default.static(uploadsDir));
 app.use("/api", routes_default);
 if (process.env.NODE_ENV === "production") {
   let clientDistPath = path3.resolve(process.cwd(), "trustfirst/dist/public");
@@ -85494,8 +85577,8 @@ if (process.env.NODE_ENV === "production") {
   }
   if (fs3.existsSync(clientDistPath)) {
     logger.info({ clientDistPath }, "Serving static frontend files from client distribution");
-    app.use(import_express23.default.static(clientDistPath));
-    app.get("/*", (req, res, next) => {
+    app.use(import_express24.default.static(clientDistPath));
+    app.get("/*splat", (req, res, next) => {
       if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
         return next();
       }
@@ -85512,6 +85595,7 @@ app.use((err, _req, res, _next) => {
 var app_default = app;
 
 // src/index.ts
+dns.setDefaultResultOrder("ipv4first");
 var rawPort = process.env["PORT"] || "5000";
 var port = Number(rawPort);
 if (Number.isNaN(port) || port <= 0) {
