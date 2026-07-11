@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === "production") {
   if (fs.existsSync(clientDistPath)) {
     logger.info({ clientDistPath }, "Serving static frontend files from client distribution");
     app.use(express.static(clientDistPath));
-    app.get("/*", (req, res, next) => {
+    app.get("/:catchall*", (req, res, next) => {
       if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
         return next();
       }
