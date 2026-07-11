@@ -94,11 +94,11 @@ export async function sendEmail({
         subject,
         html,
       });
-      // also log locally for verification
       logEmailLocally(to, subject, html, otp);
     } catch (err) {
       console.error(`[Email Error] Failed to send email via SMTP to ${to}:`, err);
       logEmailLocally(to, `${subject} (SMTP FAILED - FALLBACK LOG)`, html, otp);
+      throw err;
     }
   } else {
     logEmailLocally(to, subject, html, otp);
