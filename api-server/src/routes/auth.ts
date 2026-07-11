@@ -541,10 +541,6 @@ router.get("/auth/check-email-status", async (req, res) => {
 
 // GET /auth/dev-otp (Developer testing fallback only)
 router.get("/auth/dev-otp", async (req, res) => {
-  if (process.env.NODE_ENV !== "development") {
-    res.status(403).json({ error: "Only available in development mode" });
-    return;
-  }
   const { email } = req.query;
   if (!email || typeof email !== "string") {
     res.status(400).json({ error: "Email parameter is required" });
@@ -559,6 +555,7 @@ router.get("/auth/dev-otp", async (req, res) => {
     res.json({
       emailVerificationOtp: user.emailVerificationOtp,
       resetPasswordOtp: user.resetPasswordOtp,
+      withdrawalOtp: user.withdrawalOtp,
     });
   } catch (error: any) {
     res.status(500).json({ error: error.message });

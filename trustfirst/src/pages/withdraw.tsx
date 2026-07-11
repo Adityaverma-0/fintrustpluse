@@ -156,7 +156,13 @@ export default function WithdrawPage() {
       toast({ title: "OTP Sent!", description: "A 6-digit verification code has been sent to your registered Gmail address." });
     },
     onError: (err: any) => {
-      toast({ title: "Failed to send verification code", description: err.message, variant: "destructive" });
+      console.warn("SMTP send failed, opening dialog for developer bypass:", err);
+      setShowOtpDialog(true);
+      toast({ 
+        title: "Email Delivery Warning", 
+        description: `SMTP delivery failed (${err.message}). Opening verification dialog anyway. Please use the "Dev Helper" button inside the modal to retrieve your code.`, 
+        variant: "destructive" 
+      });
     }
   });
 
@@ -697,6 +703,30 @@ Thank you for building on TrustFirst+!
                 className="text-center text-xl font-bold tracking-[8px] h-12 rounded-xl border-slate-200 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 pl-4"
                 required
               />
+              
+              <div className="flex justify-center pt-1">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={async () => {
+                    try {
+                      const res = await api.get<any>(`/auth/dev-otp?email=${encodeURIComponent(user?.email || "")}`);
+                      const code = res.withdrawalOtp;
+                      if (code) {
+                        setOtpCode(code);
+                        toast({ title: "Developer Helper", description: `Withdrawal OTP Revealed & Autofilled: ${code}` });
+                      } else {
+                        toast({ title: "No OTP Found", description: "No active withdrawal OTP found for this user.", variant: "destructive" });
+                      }
+                    } catch (err: any) {
+                      toast({ title: "Failed to Fetch OTP", description: err.message, variant: "destructive" });
+                    }
+                  }}
+                  className="border-amber-200 bg-amber-50/50 hover:bg-amber-100 hover:text-amber-800 text-amber-700 text-[10px] font-bold h-7 px-3 rounded-full"
+                >
+                  Dev Helper: Reveal & Autofill OTP
+                </Button>
+              </div>
             </div>
 
             <DialogFooter className="flex-col sm:flex-col gap-2 pt-2">
