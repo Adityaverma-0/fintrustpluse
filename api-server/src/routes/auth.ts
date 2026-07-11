@@ -96,13 +96,23 @@ router.post("/auth/register", async (req, res) => {
     return;
   }
 
-  // Send Verification Email async
-  sendEmail({
-    to: email,
-    subject: "Verify Your FinTrust+ Account",
-    html: getVerificationEmailTemplate(name, otp),
-    otp,
-  }).catch(err => console.error("Registration email delivery error:", err));
+  // Send Verification Email with await and error catching
+  console.log(`[SIGNUP] User created successfully: ${email}. Attempting to send verification email...`);
+  try {
+    await sendEmail({
+      to: email,
+      subject: "Verify Your FinTrust+ Account",
+      html: getVerificationEmailTemplate(name, otp),
+      otp,
+    });
+    console.log(`[SIGNUP] Verification email sent successfully to ${email}.`);
+  } catch (emailErr: any) {
+    console.error(`[SIGNUP ERROR] Failed to send verification email to ${email}:`, emailErr);
+    res.status(500).json({ 
+      error: `Failed to send verification email: ${emailErr.message || "Connection timed out"}. Please check your SMTP settings or try again.` 
+    });
+    return;
+  }
 
   const token = signToken(user.id);
   const { passwordHash: _ph, ...safeUser } = user;
@@ -242,15 +252,25 @@ router.post("/auth/send-verification", async (req, res) => {
       })
       .where(eq(usersTable.id, user.id));
 
-    await sendEmail({
-      to: email,
-      subject: "Verify Your FinTrust+ Account",
-      html: getVerificationEmailTemplate(user.name, otp),
-      otp,
-    });
+    try {
+      await sendEmail({
+        to: email,
+        subject: "Verify Your FinTrust+ Account",
+        html: getVerificationEmailTemplate(user.name, otp),
+        otp,
+      });
+      console.log(`[RESEND VERIFICATION] Email sent successfully to ${email}.`);
+    } catch (emailErr: any) {
+      console.error(`[RESEND VERIFICATION ERROR] Failed to send email to ${email}:`, emailErr);
+      res.status(500).json({ 
+        error: `Failed to send verification email: ${emailErr.message || "Connection timed out"}. Please check your SMTP settings or try again.` 
+      });
+      return;
+    }
 
     res.json({ success: true, message: "Verification OTP sent successfully" });
   } catch (error: any) {
+    console.error(`[RESEND VERIFICATION SYSTEM ERROR]`, error);
     res.status(500).json({ error: error.message });
   }
 });
@@ -395,6 +415,7 @@ router.post("/auth/forgot-password", async (req, res) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expiry = new Date(Date.now() + 10 * 60 * 1000);
 
+    console.log(`[FORGOT PASSWORD] Storing OTP for user ${email}...`);
     await db.update(usersTable)
       .set({
         resetPasswordOtp: otp,
@@ -403,16 +424,27 @@ router.post("/auth/forgot-password", async (req, res) => {
         lastOtpSent: new Date(),
       })
       .where(eq(usersTable.id, user.id));
+    console.log(`[FORGOT PASSWORD] OTP stored. Sending email...`);
 
-    await sendEmail({
-      to: email,
-      subject: "Reset Your FinTrust+ Password",
-      html: getResetPasswordEmailTemplate(user.name, otp),
-      otp,
-    });
+    try {
+      await sendEmail({
+        to: email,
+        subject: "Reset Your FinTrust+ Password",
+        html: getResetPasswordEmailTemplate(user.name, otp),
+        otp,
+      });
+      console.log(`[FORGOT PASSWORD] Reset email sent successfully to ${email}.`);
+    } catch (emailErr: any) {
+      console.error(`[FORGOT PASSWORD ERROR] Failed to send password reset email to ${email}:`, emailErr);
+      res.status(500).json({ 
+        error: `Failed to send password reset email: ${emailErr.message || "Connection timed out"}. Please check your SMTP settings or try again.` 
+      });
+      return;
+    }
 
     res.json({ success: true, email, message: "Password reset OTP sent successfully" });
   } catch (error: any) {
+    console.error(`[FORGOT PASSWORD SYSTEM ERROR]`, error);
     res.status(500).json({ error: error.message });
   }
 });

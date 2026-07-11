@@ -87,4 +87,67 @@ router.post("/debug/test-email", async (req, res) => {
   }
 });
 
+router.post("/debug/email", async (req, res) => {
+  const { email } = req.body;
+  if (!email || typeof email !== "string") {
+    res.status(400).json({ error: "recipient 'email' is required in request body" });
+    return;
+  }
+
+  const logs: string[] = [];
+  const log = (msg: string, data?: any) => {
+    const formatted = data ? `${msg} ${JSON.stringify(data)}` : msg;
+    logs.push(formatted);
+    console.log(`[SMTP DEBUG EMAIL] ${formatted}`);
+  };
+
+  try {
+    const rawPass = process.env.SMTP_PASS || "";
+    const cleanPass = rawPass.trim().replace(/\s+/g, "");
+
+    log("Creating transporter...");
+    const testTransporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: process.env.SMTP_PORT === "465",
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: cleanPass,
+      },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
+    });
+
+    log("Verifying connection to SMTP server...");
+    await testTransporter.verify();
+    log("Verification successful!");
+
+    log(`Sending test email to ${email}...`);
+    const info = await testTransporter.sendMail({
+      from: `"FinTrust+ SMTP Test" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "FinTrust+ SMTP Debug Test",
+      html: `<p>SMTP test successful at ${new Date().toISOString()}</p>`,
+    });
+
+    log("Email sent successfully!", { messageId: info.messageId, response: info.response });
+    res.json({
+      success: true,
+      message: "Email sent successfully",
+      messageId: info.messageId,
+      response: info.response,
+      logs
+    });
+  } catch (error: any) {
+    log("Error sending email", { message: error.message, stack: error.stack });
+    res.status(500).json({
+      success: false,
+      error: error.message,
+      stack: error.stack,
+      logs
+    });
+  }
+});
+
 export default router;

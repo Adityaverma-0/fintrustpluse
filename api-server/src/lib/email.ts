@@ -75,7 +75,7 @@ function logEmailLocally(to: string, subject: string, body: string, otp?: string
   }
 }
 
-export async function sendEmail({
+async function doSendEmail({
   to,
   subject,
   html,
@@ -90,7 +90,9 @@ export async function sendEmail({
 
   if (resendApiKey) {
     try {
-      console.log(`[Email] Sending via Resend HTTP API to ${to}...`);
+      const startApi = Date.now();
+      console.log(`[RESEND API] Connecting & Sending via Resend API to ${to}...`);
+      const fromAddr = process.env.EMAIL_FROM || "onboarding@resend.dev";
       const response = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -98,7 +100,7 @@ export async function sendEmail({
           "Authorization": `Bearer ${resendApiKey}`,
         },
         body: JSON.stringify({
-          from: "FinTrust+ <onboarding@resend.dev>",
+          from: `FinTrust+ <${fromAddr}>`,
           to: [to],
           subject,
           html,
@@ -110,33 +112,71 @@ export async function sendEmail({
         throw new Error(`Resend API HTTP ${response.status}: ${errorBody}`);
       }
       
-      console.log(`[Email] Sent successfully via Resend HTTP API to ${to}`);
+      const apiDuration = Date.now() - startApi;
+      console.log(`[RESEND API] Sent successfully to ${to} (Time: ${apiDuration}ms)`);
       logEmailLocally(to, subject, html, otp);
       return;
     } catch (err: any) {
-      console.error(`[Email Error] Failed to send email via Resend API to ${to}:`, err);
-      logEmailLocally(to, `${subject} (RESEND API FAILED - FALLBACK LOG)`, html, otp);
+      console.error(`[RESEND API Error] Failed to send to ${to}:`, err);
+      logEmailLocally(to, `${subject} (RESEND API FAILED)`, html, otp);
       throw err;
     }
   }
 
   if (isSmtpConfigured && transporter) {
+    console.log(`[SMTP] Starting email pipeline to ${to}...`);
+    
+    // Task 4: Call transporter.verify() before sendMail()
+    console.log(`[SMTP] Verifying transporter connection...`);
+    const startVerify = Date.now();
     try {
-      await transporter.sendMail({
-        from: `"FinTrust+" <${smtpUser}>`,
+      await transporter.verify();
+      const verifyDuration = Date.now() - startVerify;
+      console.log(`[SMTP] Transporter verified successfully (Connection Time: ${verifyDuration}ms)`);
+    } catch (verifyError: any) {
+      const verifyDuration = Date.now() - startVerify;
+      console.error(`[SMTP VERIFY ERROR] Verification failed after ${verifyDuration}ms:`, verifyError);
+      throw new Error(`SMTP Transporter Verification Failed: ${verifyError.message}`);
+    }
+
+    // Send Mail
+    console.log(`[SMTP] Executing sendMail...`);
+    const startSend = Date.now();
+    try {
+      const fromAddr = process.env.EMAIL_FROM || smtpUser;
+      const info = await transporter.sendMail({
+        from: `"FinTrust+" <${fromAddr}>`,
         to,
         subject,
         html,
       });
+      const sendDuration = Date.now() - startSend;
+      console.log(`[SMTP] Email sent successfully to ${to} (Send Time: ${sendDuration}ms, MessageId: ${info.messageId})`);
       logEmailLocally(to, subject, html, otp);
-    } catch (err) {
-      console.error(`[Email Error] Failed to send email via SMTP to ${to}:`, err);
-      logEmailLocally(to, `${subject} (SMTP FAILED - FALLBACK LOG)`, html, otp);
-      throw err;
+    } catch (sendError: any) {
+      const sendDuration = Date.now() - startSend;
+      console.error(`[SMTP SEND ERROR] sendMail failed after ${sendDuration}ms:`, sendError);
+      logEmailLocally(to, `${subject} (SMTP FAILED)`, html, otp);
+      throw sendError;
     }
   } else {
+    console.log(`[SMTP] Configuration not found, logging email locally only.`);
     logEmailLocally(to, subject, html, otp);
   }
+}
+
+// Task 12: Confirm API does NOT freeze waiting for sendMail. Use 15 seconds timeout protection.
+export async function sendEmail(args: {
+  to: string;
+  subject: string;
+  html: string;
+  otp?: string;
+}) {
+  const timeoutMs = 15000;
+  const timeoutPromise = new Promise<never>((_, reject) =>
+    setTimeout(() => reject(new Error(`Email delivery timed out (${timeoutMs / 1000}s limit exceeded)`)), timeoutMs)
+  );
+  return Promise.race([doSendEmail(args), timeoutPromise]);
 }
 
 export function getVerificationEmailTemplate(name: string, otp: string): string {

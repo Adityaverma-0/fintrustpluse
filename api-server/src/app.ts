@@ -26,6 +26,18 @@ app.use(
   }),
 );
 app.use(cors());
+
+// Task 2: Log every incoming API request details
+app.use((req, res, next) => {
+  const { method, url, body } = req;
+  const sanitizedBody = { ...body };
+  if (sanitizedBody.password) sanitizedBody.password = "***HIDDEN***";
+  if (sanitizedBody.confirmPassword) sanitizedBody.confirmPassword = "***HIDDEN***";
+  if (sanitizedBody.pass) sanitizedBody.pass = "***HIDDEN***";
+  console.log(`[API REQUEST] ${method} ${url} - Body:`, JSON.stringify(sanitizedBody));
+  next();
+});
+
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
 
