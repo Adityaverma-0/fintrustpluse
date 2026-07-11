@@ -21,8 +21,6 @@ import razorpayRouter from "./razorpay";
 import withdrawalRouter from "./withdrawal";
 import profileRouter from "./profile";
 
-import debugRouter from "./debug";
-
 const router: IRouter = Router();
 
 router.use(healthRouter);
@@ -46,6 +44,5 @@ router.use(templatesRouter);
 router.use(razorpayRouter);
 router.use(withdrawalRouter);
 router.use(profileRouter);
-router.use(debugRouter);
 
 export default router;
