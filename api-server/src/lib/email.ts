@@ -2,6 +2,7 @@ import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 import dns from "dns";
+import { Resend } from "resend";
 
 dns.setDefaultResultOrder("ipv4first");
 
@@ -123,34 +124,28 @@ async function doSendEmail({
   if (resendApiKey) {
     try {
       const startApi = Date.now();
-      console.log(`[RESEND API] Connecting & Sending via Resend API to ${to}...`);
+      console.log(`[RESEND SDK] Connecting & Sending via Resend SDK to ${to}...`);
+      const resend = new Resend(resendApiKey);
       const fromAddr = process.env.EMAIL_FROM || "onboarding@resend.dev";
-      const response = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${resendApiKey}`,
-        },
-        body: JSON.stringify({
-          from: `FinTrust+ <${fromAddr}>`,
-          to: [to],
-          subject,
-          html,
-        }),
+      
+      const { data, error } = await resend.emails.send({
+        from: `FinTrust+ <${fromAddr}>`,
+        to: [to],
+        subject,
+        html,
       });
-      
-      if (!response.ok) {
-        const errorBody = await response.text();
-        throw new Error(`Resend API HTTP ${response.status}: ${errorBody}`);
+
+      if (error) {
+        throw new Error(`Resend SDK Error: ${error.message} (${error.name})`);
       }
-      
+
       const apiDuration = Date.now() - startApi;
-      console.log(`[RESEND API] Sent successfully to ${to} (Time: ${apiDuration}ms)`);
+      console.log(`[RESEND SDK] Sent successfully to ${to} (Time: ${apiDuration}ms, id: ${data?.id})`);
       logEmailLocally(to, subject, html, otp);
       return;
     } catch (err: any) {
-      console.error(`[RESEND API Error] Failed to send to ${to}:`, err);
-      logEmailLocally(to, `${subject} (RESEND API FAILED)`, html, otp);
+      console.error(`[RESEND SDK Error] Failed to send to ${to}:`, err);
+      logEmailLocally(to, `${subject} (RESEND SDK FAILED)`, html, otp);
       throw err;
     }
   }
