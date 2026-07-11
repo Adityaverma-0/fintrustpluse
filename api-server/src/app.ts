@@ -39,6 +39,27 @@ app.use("/uploads", express.static(uploadsDir));
 
 app.use("/api", router);
 
+// Serve frontend static assets in production
+if (process.env.NODE_ENV === "production") {
+  let clientDistPath = path.resolve(process.cwd(), "trustfirst/dist/public");
+  if (!fs.existsSync(clientDistPath)) {
+    clientDistPath = path.resolve(process.cwd(), "../trustfirst/dist/public");
+  }
+  
+  if (fs.existsSync(clientDistPath)) {
+    logger.info({ clientDistPath }, "Serving static frontend files from client distribution");
+    app.use(express.static(clientDistPath));
+    app.get("/*", (req, res, next) => {
+      if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
+        return next();
+      }
+      res.sendFile(path.join(clientDistPath, "index.html"));
+    });
+  } else {
+    logger.warn({ clientDistPath }, "Frontend distribution directory not found. Static serving skipped.");
+  }
+}
+
 app.use((err: any, _req: any, res: any, _next: any) => {
   logger.error(err);
   res.status(err.status || 500).json({ error: err.message || "Internal Server Error" });

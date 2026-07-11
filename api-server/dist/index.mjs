@@ -85487,6 +85487,24 @@ if (!fs3.existsSync(uploadsDir)) {
 }
 app.use("/uploads", import_express23.default.static(uploadsDir));
 app.use("/api", routes_default);
+if (process.env.NODE_ENV === "production") {
+  let clientDistPath = path3.resolve(process.cwd(), "trustfirst/dist/public");
+  if (!fs3.existsSync(clientDistPath)) {
+    clientDistPath = path3.resolve(process.cwd(), "../trustfirst/dist/public");
+  }
+  if (fs3.existsSync(clientDistPath)) {
+    logger.info({ clientDistPath }, "Serving static frontend files from client distribution");
+    app.use(import_express23.default.static(clientDistPath));
+    app.get("/*", (req, res, next) => {
+      if (req.path.startsWith("/api") || req.path.startsWith("/uploads")) {
+        return next();
+      }
+      res.sendFile(path3.join(clientDistPath, "index.html"));
+    });
+  } else {
+    logger.warn({ clientDistPath }, "Frontend distribution directory not found. Static serving skipped.");
+  }
+}
 app.use((err, _req, res, _next) => {
   logger.error(err);
   res.status(err.status || 500).json({ error: err.message || "Internal Server Error" });
