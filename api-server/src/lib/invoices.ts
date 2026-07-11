@@ -183,8 +183,8 @@ export async function generateInvoiceForEvent(
     transactionId: options.transactionId ?? null,
     status: type === "escrow_deposit" || type === "withdrawal" || type === "refund" ? "paid" : "generated",
     
-    digitalSignature: "TrustFirst+ Secure Cryptographic Seal",
-    qrCode: `https://trustfirstplus.com/verify-invoice/${invoiceNumber}`,
+    digitalSignature: "FinTrust+ Secure Cryptographic Seal",
+    qrCode: `https://fintrustplus.com/verify-invoice/${invoiceNumber}`,
     dueDate,
   }).returning();
 

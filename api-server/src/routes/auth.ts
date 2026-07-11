@@ -99,7 +99,7 @@ router.post("/auth/register", async (req, res) => {
   // Send Verification Email async
   sendEmail({
     to: email,
-    subject: "Verify Your TrustFirst+ Account",
+    subject: "Verify Your FinTrust+ Account",
     html: getVerificationEmailTemplate(name, otp),
     otp,
   }).catch(err => console.error("Registration email delivery error:", err));
@@ -244,7 +244,7 @@ router.post("/auth/send-verification", async (req, res) => {
 
     await sendEmail({
       to: email,
-      subject: "Verify Your TrustFirst+ Account",
+      subject: "Verify Your FinTrust+ Account",
       html: getVerificationEmailTemplate(user.name, otp),
       otp,
     });
@@ -311,7 +311,7 @@ router.post("/auth/verify-email", async (req, res) => {
     // Send Welcome Email
     sendEmail({
       to: email,
-      subject: "Welcome to TrustFirst+!",
+      subject: "Welcome to FinTrust+!",
       html: getWelcomeEmailTemplate(user.name),
     }).catch(err => console.error("Welcome email delivery error:", err));
 
@@ -366,7 +366,7 @@ router.post("/auth/resend-verification", async (req, res) => {
 
     await sendEmail({
       to: email,
-      subject: "Verify Your TrustFirst+ Account",
+      subject: "Verify Your FinTrust+ Account",
       html: getVerificationEmailTemplate(user.name, otp),
       otp,
     });
@@ -406,7 +406,7 @@ router.post("/auth/forgot-password", async (req, res) => {
 
     await sendEmail({
       to: email,
-      subject: "Reset Your TrustFirst+ Password",
+      subject: "Reset Your FinTrust+ Password",
       html: getResetPasswordEmailTemplate(user.name, otp),
       otp,
     });
@@ -616,13 +616,13 @@ router.post("/auth/send-test-email", async (req, res) => {
 
     console.log(`[SMTP TEST] Sending test email to ${to}...`);
     const info = await testTransporter.sendMail({
-      from: `"TrustFirst+ SMTP Test" <${process.env.SMTP_USER}>`,
+      from: `"FinTrust+ SMTP Test" <${process.env.SMTP_USER}>`,
       to,
-      subject: "TrustFirst+ SMTP Connection Test",
+      subject: "FinTrust+ SMTP Connection Test",
       html: `
         <div style="font-family: sans-serif; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
           <h2 style="color: #2563eb;">Connection Successful!</h2>
-          <p>This is a test email from the TrustFirst+ platform to verify SMTP configuration and Gmail integration.</p>
+          <p>This is a test email from the FinTrust+ platform to verify SMTP configuration and Gmail integration.</p>
           <p style="font-size: 12px; color: #64748b;">Timestamp: ${new Date().toISOString()}</p>
         </div>
       `,

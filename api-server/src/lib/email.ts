@@ -89,7 +89,7 @@ export async function sendEmail({
   if (isSmtpConfigured && transporter) {
     try {
       await transporter.sendMail({
-        from: `"TrustFirst+" <${smtpUser}>`,
+        from: `"FinTrust+" <${smtpUser}>`,
         to,
         subject,
         html,
@@ -108,9 +108,9 @@ export async function sendEmail({
 export function getVerificationEmailTemplate(name: string, otp: string): string {
   return `
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
-      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Verify Your TrustFirst+ Email</h2>
+      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Verify Your FinTrust+ Email</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
-      <p style="color: #475569; font-size: 14px; line-height: 1.6;">Thank you for registering on TrustFirst+. Please use the following 6-digit verification code to complete your registration:</p>
+      <p style="color: #475569; font-size: 14px; line-height: 1.6;">Thank you for registering on FinTrust+. Please use the following 6-digit verification code to complete your registration:</p>
       <div style="background-color: #f0fdf4; border: 1px solid #d1fae5; border-radius: 8px; font-size: 24px; font-weight: bold; letter-spacing: 4px; padding: 15px; text-align: center; color: #065f46; margin: 20px 0;">
         ${otp}
       </div>
@@ -136,7 +136,7 @@ export function getResetPasswordEmailTemplate(name: string, otp: string): string
 export function getWelcomeEmailTemplate(name: string): string {
   return `
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
-      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Welcome to TrustFirst+</h2>
+      <h2 style="color: #059669; font-weight: bold; border-bottom: 2px solid #ecfdf5; padding-bottom: 10px;">Welcome to FinTrust+</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
       <p style="color: #475569; font-size: 14px; line-height: 1.6;">Welcome to the next generation of escrow-backed freelance contracting! Your email address has been successfully verified, and your account is now fully active.</p>
       <p style="color: #475569; font-size: 14px;">Get started today by updating your profile or exploring available milestone agreements!</p>
@@ -149,7 +149,7 @@ export function getPasswordChangedEmailTemplate(name: string): string {
     <div style="font-family: sans-serif; padding: 20px; max-width: 600px; margin: auto; border: 1px solid #e2e8f0; border-radius: 12px;">
       <h2 style="color: #dc2626; font-weight: bold; border-bottom: 2px solid #fef2f2; padding-bottom: 10px;">Password Changed Successfully</h2>
       <p style="color: #475569; font-size: 14px;">Hi ${name},</p>
-      <p style="color: #475569; font-size: 14px; line-height: 1.6;">This is a security alert to confirm that your TrustFirst+ account password was updated successfully.</p>
+      <p style="color: #475569; font-size: 14px; line-height: 1.6;">This is a security alert to confirm that your FinTrust+ account password was updated successfully.</p>
       <p style="color: #dc2626; font-weight: 500; font-size: 13px;">If you did not perform this change, please contact our support team immediately to lock your account.</p>
     </div>
   `;
