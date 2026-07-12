@@ -23,23 +23,6 @@ export default function VerifyResetOtpPage() {
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
   const [cooldown, setCooldown] = useState(0);
-  const [devOtp, setDevOtp] = useState<string | null>(null);
-
-  const handleRevealDevOtp = async () => {
-    try {
-      const res = await api.get<any>(`/auth/dev-otp?email=${encodeURIComponent(email)}`);
-      const code = res.resetPasswordOtp;
-      if (code) {
-        setDevOtp(code);
-        setOtp(code);
-        toast({ title: "Developer Helper", description: `OTP Revealed & Autofilled: ${code}` });
-      } else {
-        toast({ title: "No OTP Found", description: "Could not find active password reset OTP for this email.", variant: "destructive" });
-      }
-    } catch (err: any) {
-      toast({ title: "Failed to Fetch OTP", description: err.message, variant: "destructive" });
-    }
-  };
 
   const inputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
@@ -143,13 +126,6 @@ export default function VerifyResetOtpPage() {
             </form>
 
             <div className="flex flex-col items-center gap-2 pt-2 border-t text-xs">
-              <button 
-                type="button"
-                onClick={handleRevealDevOtp}
-                className="text-amber-600 hover:text-amber-700 font-semibold mb-2 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200"
-              >
-                Dev Helper: Reveal & Autofill OTP
-              </button>
 
               <button 
                 onClick={handleResend}
