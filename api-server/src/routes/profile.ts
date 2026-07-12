@@ -7,26 +7,7 @@ import path from "path";
 
 const router: IRouter = Router();
 
-// Helper to save base64 uploads
-function saveBase64File(base64Str: string, originalFilename: string) {
-  const uploadsDir = path.join(process.cwd(), "uploads");
-  if (!fs.existsSync(uploadsDir)) {
-    fs.mkdirSync(uploadsDir, { recursive: true });
-  }
-
-  // Strip prefix
-  const matches = base64Str.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-  let data = base64Str;
-  if (matches && matches.length === 3) {
-    data = matches[2];
-  }
-
-  const ext = path.extname(originalFilename) || ".bin";
-  const filename = `${Math.random().toString(36).substring(2, 10)}_${Date.now()}${ext}`;
-  const filePath = path.join(uploadsDir, filename);
-  fs.writeFileSync(filePath, Buffer.from(data, "base64"));
-  return `/uploads/${filename}`;
-}
+import { saveBase64File } from "../lib/upload";
 
 // GET /profile
 router.get("/profile", requireAuth, async (req, res) => {

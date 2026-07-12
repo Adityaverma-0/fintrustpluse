@@ -5,6 +5,7 @@ import router from "./routes";
 import { logger } from "./lib/logger";
 
 const app: Express = express();
+app.set("trust proxy", true);
 
 app.use(
   pinoHttp({
@@ -49,7 +50,8 @@ if (!fs.existsSync(uploadsDir)) {
 }
 app.use("/uploads", express.static(uploadsDir));
 
-app.use("/api", router);
+import { publicLimiter } from "./middlewares/rateLimiter";
+app.use("/api", publicLimiter, router);
 
 // Serve frontend static assets in production
 if (process.env.NODE_ENV === "production") {
@@ -72,9 +74,18 @@ if (process.env.NODE_ENV === "production") {
   }
 }
 
+// Global error handler (Hides stack traces and raw error messages in production)
 app.use((err: any, _req: any, res: any, _next: any) => {
-  logger.error(err);
-  res.status(err.status || 500).json({ error: err.message || "Internal Server Error" });
+  logger.error({ err }, "Unhandled application error");
+  
+  const status = err.status || 500;
+  let userMessage = "An unexpected error occurred. Please try again later.";
+  
+  if (status < 500 || process.env.NODE_ENV !== "production") {
+    userMessage = err.message || userMessage;
+  }
+  
+  res.status(status).json({ error: userMessage });
 });
 
 export default app;

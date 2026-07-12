@@ -4,6 +4,7 @@ import { eq } from "drizzle-orm";
 import { db, usersTable } from "@workspace/db";
 import { hashPassword, verifyPassword, signToken } from "../lib/auth";
 import { requireAuth } from "../middlewares/requireAuth";
+import { validateRequest } from "../middlewares/validate";
 import { z } from "zod";
 import { 
   sendEmail, 
@@ -34,6 +35,30 @@ const LoginBody = z.object({
   password: z.string().min(1),
 });
 
+const ForgotPasswordBody = z.object({
+  email: z.string().email(),
+});
+
+const VerifyResetOtpBody = z.object({
+  email: z.string().email(),
+  otp: z.string().length(6),
+});
+
+const ResetPasswordBody = z.object({
+  email: z.string().email(),
+  otp: z.string().length(6),
+  password: z.string().min(8),
+});
+
+const VerifyEmailBody = z.object({
+  email: z.string().email(),
+  otp: z.string().length(6),
+});
+
+const ResendVerificationBody = z.object({
+  email: z.string().email(),
+});
+
 // Helper for password strength check
 function validatePasswordStrength(password: string): boolean {
   if (password.length < 8) return false;
@@ -44,14 +69,8 @@ function validatePasswordStrength(password: string): boolean {
   return true;
 }
 
-router.post("/auth/register", async (req, res) => {
-  const parsed = RegisterBody.safeParse(req.body);
-  if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.issues[0]?.message ?? "Invalid input" });
-    return;
-  }
-
-  const { name, email, password, role, title, bio, skills, hourlyRate, category, country } = parsed.data;
+router.post("/auth/register", validateRequest({ body: RegisterBody }), async (req, res) => {
+  const { name, email, password, role, title, bio, skills, hourlyRate, category, country } = req.body;
 
   const existing = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
   if (existing) {
@@ -119,14 +138,8 @@ router.post("/auth/register", async (req, res) => {
   res.status(201).json({ token, user: safeUser });
 });
 
-router.post("/auth/login", async (req, res) => {
-  const parsed = LoginBody.safeParse(req.body);
-  if (!parsed.success) {
-    res.status(400).json({ error: parsed.error.issues[0]?.message ?? "Invalid input" });
-    return;
-  }
-
-  const { email, password } = parsed.data;
+router.post("/auth/login", validateRequest({ body: LoginBody }), async (req, res) => {
+  const { email, password } = req.body;
 
   const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
   if (!user) {
@@ -221,12 +234,8 @@ router.post("/auth/send-withdrawal-otp", requireAuth, async (req, res) => {
 // ==================================================
 
 // POST /auth/send-verification
-router.post("/auth/send-verification", async (req, res) => {
+router.post("/auth/send-verification", validateRequest({ body: ResendVerificationBody }), async (req, res) => {
   const { email } = req.body;
-  if (!email) {
-    res.status(400).json({ error: "Email is required" });
-    return;
-  }
 
   try {
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
@@ -276,12 +285,8 @@ router.post("/auth/send-verification", async (req, res) => {
 });
 
 // POST /auth/verify-email
-router.post("/auth/verify-email", async (req, res) => {
+router.post("/auth/verify-email", validateRequest({ body: VerifyEmailBody }), async (req, res) => {
   const { email, otp } = req.body;
-  if (!email || !otp) {
-    res.status(400).json({ error: "Email and OTP are required" });
-    return;
-  }
 
   try {
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
@@ -398,13 +403,8 @@ router.post("/auth/resend-verification", async (req, res) => {
 });
 
 // POST /auth/forgot-password
-router.post("/auth/forgot-password", async (req, res) => {
+router.post("/auth/forgot-password", validateRequest({ body: ForgotPasswordBody }), async (req, res) => {
   const { email } = req.body;
-  if (!email) {
-    res.status(400).json({ error: "Email is required" });
-    return;
-  }
-
   try {
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
     if (!user) {
@@ -450,12 +450,8 @@ router.post("/auth/forgot-password", async (req, res) => {
 });
 
 // POST /auth/verify-reset-otp
-router.post("/auth/verify-reset-otp", async (req, res) => {
+router.post("/auth/verify-reset-otp", validateRequest({ body: VerifyResetOtpBody }), async (req, res) => {
   const { email, otp } = req.body;
-  if (!email || !otp) {
-    res.status(400).json({ error: "Email and OTP are required" });
-    return;
-  }
 
   try {
     const user = await db.query.usersTable.findFirst({ where: eq(usersTable.email, email) });
@@ -494,7 +490,7 @@ router.post("/auth/verify-reset-otp", async (req, res) => {
 });
 
 // POST /auth/reset-password
-router.post("/auth/reset-password", async (req, res) => {
+router.post("/auth/reset-password", validateRequest({ body: ResetPasswordBody }), async (req, res) => {
   const { email, otp, password } = req.body;
   if (!email || !otp || !password) {
     res.status(400).json({ error: "All fields are required" });

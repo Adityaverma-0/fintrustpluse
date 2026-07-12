@@ -21,7 +21,18 @@ import razorpayRouter from "./razorpay";
 import withdrawalRouter from "./withdrawal";
 import profileRouter from "./profile";
 
+import { authRateLimiter, adminLimiter, authenticatedLimiter } from "../middlewares/rateLimiter";
+
 const router: IRouter = Router();
+
+// Mount sub-path specific rate limiters (matches before standard paths)
+router.use("/auth", authRateLimiter);
+router.use("/admin", adminLimiter);
+router.use("/admin-enterprise", adminLimiter);
+router.use("/admin_enterprise", adminLimiter);
+
+// Apply loose limit on standard authenticated endpoints
+router.use(authenticatedLimiter);
 
 router.use(healthRouter);
 router.use(authRouter);
