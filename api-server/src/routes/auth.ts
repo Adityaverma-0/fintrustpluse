@@ -574,6 +574,7 @@ router.get("/auth/seed-admin", async (req, res) => {
     const adminPass = "adminpassword123";
     const superEmail = "superadmin@fintrust.com";
     const superPass = "superadminpassword123";
+    const dbUrl = process.env.DATABASE_URL || "NOT_SET";
 
     // 1. Seed admin@fintrust.com
     const adminHash = await hashPassword(adminPass);
@@ -620,13 +621,19 @@ router.get("/auth/seed-admin", async (req, res) => {
     res.json({
       success: true,
       message: "Seeding complete! Both admin accounts have been created/updated in the database.",
+      dbUrl,
       accounts: [
         { email: adminEmail, role: "admin" },
         { email: superEmail, role: "admin" }
       ]
     });
   } catch (error: any) {
-    res.status(500).json({ error: error.message });
+    res.json({
+      success: false,
+      error: error.message,
+      stack: error.stack,
+      dbUrl: process.env.DATABASE_URL || "NOT_SET"
+    });
   }
 });
 
