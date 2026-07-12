@@ -567,4 +567,67 @@ router.get("/auth/check-email-status", async (req, res) => {
   }
 });
 
+// GET /auth/seed-admin (Dev/Prod remote seed utility)
+router.get("/auth/seed-admin", async (req, res) => {
+  try {
+    const adminEmail = "admin@fintrust.com";
+    const adminPass = "adminpassword123";
+    const superEmail = "superadmin@fintrust.com";
+    const superPass = "superadminpassword123";
+
+    // 1. Seed admin@fintrust.com
+    const adminHash = await hashPassword(adminPass);
+    const existingAdmin = await db.query.usersTable.findFirst({
+      where: eq(usersTable.email, adminEmail)
+    });
+    if (existingAdmin) {
+      await db.update(usersTable)
+        .set({ role: "admin", emailVerified: true, passwordHash: adminHash })
+        .where(eq(usersTable.id, existingAdmin.id));
+    } else {
+      await db.insert(usersTable).values({
+        name: "System Admin",
+        email: adminEmail,
+        passwordHash: adminHash,
+        role: "admin",
+        title: "System Administrator",
+        bio: "Fintrust+ Platform Administrator",
+        emailVerified: true,
+      });
+    }
+
+    // 2. Seed superadmin@fintrust.com
+    const superHash = await hashPassword(superPass);
+    const existingSuper = await db.query.usersTable.findFirst({
+      where: eq(usersTable.email, superEmail)
+    });
+    if (existingSuper) {
+      await db.update(usersTable)
+        .set({ role: "admin", emailVerified: true, passwordHash: superHash })
+        .where(eq(usersTable.id, existingSuper.id));
+    } else {
+      await db.insert(usersTable).values({
+        name: "Super Administrator",
+        email: superEmail,
+        passwordHash: superHash,
+        role: "admin",
+        title: "Super Administrator",
+        bio: "Fintrust+ Platform Executive Administrator",
+        emailVerified: true,
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Seeding complete! Both admin accounts have been created/updated in the database.",
+      accounts: [
+        { email: adminEmail, role: "admin" },
+        { email: superEmail, role: "admin" }
+      ]
+    });
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 export default router;
