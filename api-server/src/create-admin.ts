@@ -5,8 +5,8 @@ import { hashPassword } from "./lib/auth";
 async function createAdmin() {
   console.log("=== Creating Admin User ===");
 
-  const email = "admin@fintrust.com";
-  const password = "adminpassword123";
+  const email = "saketpatankar2@gmail.com";
+  const password = "Sanket@123";
 
   // Check if admin already exists
   const existing = await db.query.usersTable.findFirst({
