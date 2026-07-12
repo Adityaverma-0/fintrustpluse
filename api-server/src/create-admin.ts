@@ -14,12 +14,13 @@ async function createAdmin() {
   });
 
   if (existing) {
-    console.log("Admin user already exists. Updating role to admin and verifying email...");
+    console.log("Admin user already exists. Updating role, email verification, and resetting password...");
+    const passwordHash = await hashPassword(password);
     await db.update(usersTable)
-      .set({ role: "admin", emailVerified: true })
+      .set({ role: "admin", emailVerified: true, passwordHash })
       .where(eq(usersTable.id, existing.id));
     console.log(`Admin user email: ${email}`);
-    console.log("Password remains unchanged.");
+    console.log(`Password reset to: ${password}`);
     return;
   }
 

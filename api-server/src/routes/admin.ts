@@ -696,10 +696,8 @@ router.post("/admin/jobs/:id/feature", requireAuth, async (req, res) => {
   try {
     const [featured] = await db.insert(featuredJobsTable).values({
       jobId: id,
-      boostLevel: "sponsored",
-      paymentStatus: "completed",
-      startsAt: new Date(),
-      endsAt: new Date(Date.now() + 30 * 24 * 3600 * 1000)
+      isSponsored: true,
+      expiryDate: new Date(Date.now() + 30 * 24 * 3600 * 1000)
     }).returning();
 
     await db.insert(adminAuditLogsTable).values({
