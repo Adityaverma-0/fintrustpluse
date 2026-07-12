@@ -65,7 +65,7 @@ export function createRateLimiter(options: {
 // (login, signup, forgot password, reset password, OTP verification)
 export function authRateLimiter(req: Request, res: Response, next: NextFunction) {
   const ip = req.ip || "unknown-ip";
-  const email = req.body.email ? String(req.body.email).toLowerCase().trim() : null;
+  const email = req.body?.email ? String(req.body.email).toLowerCase().trim() : null;
   const now = Date.now();
 
   const maxAttemptsBeforeDelay = getEnvNum("RATE_LIMIT_AUTH_MAX_ATTEMPTS", 5);
