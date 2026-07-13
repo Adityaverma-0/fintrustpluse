@@ -85066,12 +85066,20 @@ router2.get("/auth/check-email-status", async (req, res) => {
 });
 router2.get("/diag-db", async (req, res) => {
   try {
-    const result = await db.execute(sql`
-      SELECT column_name, data_type 
+    const columnsRes = await db.execute(sql`
+      SELECT table_schema, column_name, data_type 
       FROM information_schema.columns 
-      WHERE table_name = 'users'
+      WHERE table_name = 'users' AND table_schema = 'public'
     `);
-    res.json(result.rows);
+    const tablesRes = await db.execute(sql`
+      SELECT table_name 
+      FROM information_schema.tables 
+      WHERE table_schema = 'public'
+    `);
+    res.json({
+      publicUsersColumns: columnsRes.rows,
+      publicTables: tablesRes.rows.map((t) => t.table_name)
+    });
   } catch (err) {
     res.status(500).json({ error: err.message, stack: err.stack });
   }
