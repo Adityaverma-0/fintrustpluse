@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import nodemailer from "nodemailer";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db, usersTable } from "@workspace/db";
 import { hashPassword, verifyPassword, signToken } from "../lib/auth";
 import { requireAuth } from "../middlewares/requireAuth";
@@ -564,6 +564,20 @@ router.get("/auth/check-email-status", async (req, res) => {
     res.json({ emailVerified: user.emailVerified });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
+  }
+});
+
+// DIAGNOSTIC DB COLUMNS CHECK
+router.get("/diag-db", async (req, res) => {
+  try {
+    const result = await db.execute(sql`
+      SELECT column_name, data_type 
+      FROM information_schema.columns 
+      WHERE table_name = 'users'
+    `);
+    res.json(result.rows);
+  } catch (err: any) {
+    res.status(500).json({ error: err.message, stack: err.stack });
   }
 });
 

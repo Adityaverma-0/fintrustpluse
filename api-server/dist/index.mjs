@@ -85064,6 +85064,18 @@ router2.get("/auth/check-email-status", async (req, res) => {
     res.status(500).json({ error: error40.message });
   }
 });
+router2.get("/diag-db", async (req, res) => {
+  try {
+    const result = await db.execute(sql`
+      SELECT column_name, data_type 
+      FROM information_schema.columns 
+      WHERE table_name = 'users'
+    `);
+    res.json(result.rows);
+  } catch (err) {
+    res.status(500).json({ error: err.message, stack: err.stack });
+  }
+});
 var auth_default = router2;
 
 // src/routes/jobs.ts
@@ -88139,10 +88151,8 @@ router14.post("/admin/jobs/:id/feature", requireAuth, async (req, res) => {
   try {
     const [featured] = await db.insert(featuredJobsTable).values({
       jobId: id,
-      boostLevel: "sponsored",
-      paymentStatus: "completed",
-      startsAt: /* @__PURE__ */ new Date(),
-      endsAt: new Date(Date.now() + 30 * 24 * 3600 * 1e3)
+      isSponsored: true,
+      expiryDate: new Date(Date.now() + 30 * 24 * 3600 * 1e3)
     }).returning();
     await db.insert(adminAuditLogsTable).values({
       adminId: req.userId,
@@ -91411,7 +91421,7 @@ function createRateLimiter(options) {
 }
 function authRateLimiter(req, res, next) {
   const ip = req.ip || "unknown-ip";
-  const email3 = req.body.email ? String(req.body.email).toLowerCase().trim() : null;
+  const email3 = req.body?.email ? String(req.body.email).toLowerCase().trim() : null;
   const now = Date.now();
   const maxAttemptsBeforeDelay = getEnvNum("RATE_LIMIT_AUTH_MAX_ATTEMPTS", 5);
   const windowMs = getEnvNum("RATE_LIMIT_AUTH_WINDOW_MS", 60 * 1e3);
