@@ -85066,19 +85066,13 @@ router2.get("/auth/check-email-status", async (req, res) => {
 });
 router2.get("/diag-db", async (req, res) => {
   try {
-    const columnsRes = await db.execute(sql`
-      SELECT table_schema, column_name, data_type 
-      FROM information_schema.columns 
-      WHERE table_name = 'users' AND table_schema = 'public'
-    `);
     const tablesRes = await db.execute(sql`
-      SELECT table_name 
+      SELECT table_schema, table_name 
       FROM information_schema.tables 
-      WHERE table_schema = 'public'
+      WHERE table_schema NOT IN ('pg_catalog', 'information_schema')
     `);
     res.json({
-      publicUsersColumns: columnsRes.rows,
-      publicTables: tablesRes.rows.map((t) => t.table_name)
+      tables: tablesRes.rows
     });
   } catch (err) {
     res.status(500).json({ error: err.message, stack: err.stack });
